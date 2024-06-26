@@ -1,6 +1,10 @@
 
 # Autorizador de pagamentos
 
+![java](https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![docker](https://img.shields.io/badge/-Docker-black?style=for-the-badge&logo=docker)
+
 A VR processa todos os dias diversas transações de Vale Refeição e Vale Alimentação, entre outras.
 De forma breve, as transações saem das maquininhas de cartão e chegam até uma de nossas aplicações, conhecida como *autorizador*, que realiza uma série de verificações e análises. Essas também são conhecidas como *regras de autorização*.
 

@@ -3,23 +3,25 @@ package br.com.autorizador.infrastructure.entity;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
-import java.util.List;
 
 @Entity
-@Table(name = "contas")
-public class ContasEntity {
+@Table(name = "saldo")
+public class SaldoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_saldo")
     private Integer id;
     @ManyToOne
-    private List<CartaoEntity> cartao;
+    @JoinColumn(name = "cartao_id")
+    private CartaoEntity cartao;
+    @Column(name = "saldo")
     private BigDecimal saldo;
 
-    public ContasEntity() {
+    public SaldoEntity() {
     }
 
-    public ContasEntity(List<CartaoEntity> cartao, BigDecimal saldo) {
+    public SaldoEntity(CartaoEntity cartao, BigDecimal saldo) {
         this.cartao = cartao;
         this.saldo = saldo;
     }
@@ -28,11 +30,11 @@ public class ContasEntity {
         return id;
     }
 
-    public List<CartaoEntity> getCartao() {
+    public CartaoEntity getCartao() {
         return cartao;
     }
 
-    public void setCartao(List<CartaoEntity> cartao) {
+    public void setCartao(CartaoEntity cartao) {
         this.cartao = cartao;
     }
 

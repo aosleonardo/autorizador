@@ -2,12 +2,11 @@ package br.com.autorizador.domain;
 
 public class Cartao {
     private String senha;
-    private Integer numeroCartao;
+    private String numeroCartao;
 
-    public Cartao() {
-    }
+    public Cartao() {}
 
-    public Cartao(String senha, Integer numeroCartao) {
+    public Cartao(String senha, String numeroCartao) {
         this.senha = senha;
         this.numeroCartao = numeroCartao;
     }
@@ -20,11 +19,13 @@ public class Cartao {
         this.senha = senha;
     }
 
-    public Integer getNumeroCartao() {
+    public String getNumeroCartao() {
         return numeroCartao;
     }
 
-    public void setNumeroCartao(Integer numeroCartao) {
+    public void setNumeroCartao(String numeroCartao) {
         this.numeroCartao = numeroCartao;
     }
 }
+
+
