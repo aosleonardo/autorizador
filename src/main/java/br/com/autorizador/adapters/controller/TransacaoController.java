@@ -3,7 +3,6 @@ package br.com.autorizador.adapters.controller;
 import br.com.autorizador.domain.dto.TransacaoDTO;
 import br.com.autorizador.domain.ports.interfaces.TransacaoServicePort;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,7 +20,8 @@ public class TransacaoController {
     }
 
     @PostMapping
-    ResponseEntity<TransacaoDTO> save(@Valid @RequestBody TransacaoDTO transacaoDTO) {
-        return  ResponseEntity.status(HttpStatus.CREATED).body(transacaoServicePort.transacao(transacaoDTO));
+    ResponseEntity<String> save(@Valid @RequestBody TransacaoDTO transacaoDTO) {
+        transacaoServicePort.transacao(transacaoDTO);
+        return  ResponseEntity.ok("OK");
     }
 }

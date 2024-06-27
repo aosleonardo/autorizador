@@ -1,9 +1,8 @@
 package br.com.autorizador.adapters.controller;
 
 import br.com.autorizador.domain.dto.CartaoDTO;
-import br.com.autorizador.domain.dto.SaldoDTO;
 import br.com.autorizador.domain.ports.interfaces.CartoesServicePort;
-import br.com.autorizador.domain.ports.interfaces.ContaServicePort;
+import br.com.autorizador.domain.ports.interfaces.SaldoServicePort;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,11 +14,11 @@ public class CartaoController {
 
     private final CartoesServicePort cartoesPort;
 
-    private final ContaServicePort contaServicePort;
+    private final SaldoServicePort saldoServicePort;
 
-    public CartaoController(CartoesServicePort cartoesPort, ContaServicePort contaServicePort) {
+    public CartaoController(CartoesServicePort cartoesPort, SaldoServicePort saldoServicePort) {
         this.cartoesPort = cartoesPort;
-        this.contaServicePort = contaServicePort;
+        this.saldoServicePort = saldoServicePort;
     }
 
     @PostMapping
@@ -28,8 +27,8 @@ public class CartaoController {
     }
 
     @GetMapping("/{numeroCartao}")
-    ResponseEntity<SaldoDTO> getCartao(@PathVariable(value = "numeroCartao", required = true)
+    ResponseEntity<String> getCartao(@PathVariable(value = "numeroCartao", required = true)
                                         String numeroCartao) {
-        return  ResponseEntity.ok(contaServicePort.getSaldoCartao(numeroCartao));
+        return  ResponseEntity.ok(saldoServicePort.getSaldo(numeroCartao).saldo().toString());
     }
 }

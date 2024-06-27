@@ -7,6 +7,8 @@ import br.com.autorizador.domain.ports.repository.CartaoRepositoryPort;
 import br.com.autorizador.infrastructure.entity.CartaoEntity;
 import org.springframework.stereotype.Component;
 
+import java.util.Optional;
+
 @Component
 public class CartoesRepositoty implements CartaoRepositoryPort {
 
@@ -15,6 +17,17 @@ public class CartoesRepositoty implements CartaoRepositoryPort {
     public CartoesRepositoty(SpringCartoesRepository springCartoesRepository) {
         this.springCartoesRepository = springCartoesRepository;
     }
+
+    @Override
+    public Optional<CartaoEntity> findByNumeroCartao(String numeroCartao) {
+        return springCartoesRepository.findByNumeroCartao(numeroCartao);
+    }
+
+    @Override
+    public Optional<CartaoEntity> findByNumeroCartaoAndSenha(String numeroCartao, String senha) {
+        return springCartoesRepository.findByNumeroCartaoAndSenha(numeroCartao, senha);
+    }
+
     @Override
     public CartaoDTO save(Cartao cartao) {
         final CartaoEntity cartaoEntity = new CartaoEntity(cartao.getNumeroCartao(),cartao.getSenha());
