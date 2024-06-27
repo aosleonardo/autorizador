@@ -23,6 +23,7 @@ public class VerificaCartaoHendler implements Handler<TransacaoDTO> {
         transacaoHandle.setSaldo(saldo.getSaldo());
         transacaoHandle.setNumeroCartao(saldo.getCartao().getNumeroCartao());
         transacaoHandle.setSenha(saldo.getCartao().getSenha());
+        transacaoHandle.setIdSaldo(saldo.getId());
 
         next.handle(transacaoRequest, transacaoHandle);
     }

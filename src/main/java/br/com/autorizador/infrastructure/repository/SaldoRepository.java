@@ -4,6 +4,7 @@ import br.com.autorizador.domain.ports.repository.SaldoRepositoryPort;
 import br.com.autorizador.infrastructure.entity.SaldoEntity;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
 import java.util.Optional;
 import java.util.Set;
 
@@ -17,5 +18,13 @@ public class SaldoRepository implements SaldoRepositoryPort {
     public Optional<Set<SaldoEntity>> getSaldoCartao(String numeroCartao) {
         return saldoRepository.findByNumeroCartao(numeroCartao);
 
+    }
+
+    @Override
+    public void updateSaldo(Integer idSaldo, BigDecimal saldo) {
+         final Optional<SaldoEntity> saldoEntityOP = saldoRepository.findById(idSaldo);
+        SaldoEntity saldoEntity = saldoEntityOP.orElseThrow(RuntimeException::new);
+
+        saldoRepository.save(new SaldoEntity(saldoEntity.getCartao(), saldo));
     }
 }

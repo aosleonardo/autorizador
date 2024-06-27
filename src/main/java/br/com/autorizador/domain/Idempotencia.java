@@ -1,5 +1,7 @@
 package br.com.autorizador.domain;
 
+import br.com.autorizador.infrastructure.entity.IdempotenciaEntity;
+
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
@@ -22,6 +24,14 @@ public class Idempotencia {
         this.valor = valor;
         this.dtTransacao = dtTransacao;
         this.ativo = ativo;
+    }
+
+    public Idempotencia(IdempotenciaEntity idempotenciaEntity) {
+        this.id = idempotenciaEntity.getId();
+        this.numeroCartao = idempotenciaEntity.getNumeroCartao();
+        this.valor = idempotenciaEntity.getValor();
+        this.dtTransacao = idempotenciaEntity.getDtTransacao();
+        this.ativo = idempotenciaEntity.getAtivo();
     }
 
     public UUID getId() {

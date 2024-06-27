@@ -6,6 +6,7 @@ import br.com.autorizador.domain.ports.interfaces.SaldoServicePort;
 import br.com.autorizador.domain.ports.repository.SaldoRepositoryPort;
 import br.com.autorizador.infrastructure.entity.SaldoEntity;
 
+import java.math.BigDecimal;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
@@ -26,6 +27,11 @@ public class SaldoServiceImp implements SaldoServicePort {
     @Override
     public SaldoDTO getSaldo(String numeroCartao) {
         return new SaldoDTO(this.getSaldoCartao(numeroCartao).orElseThrow(ResourceNotFoundException::new).getSaldo());
+    }
+
+    @Override
+    public void updateSaldo(Integer idSaldo, BigDecimal saldo) {
+        saldoRepositoryPort.updateSaldo(idSaldo, saldo);
     }
 
 

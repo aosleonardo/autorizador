@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(UnprocessableEntityException.class)
     public ResponseEntity<?> handleUnprocessableEntityException(UnprocessableEntityException ex, WebRequest request) {
-        ErrorDetails errorDetails = new ErrorDetails(ex.getMessage(), request.getDescription(true));
+        ErrorDetails errorDetails = new ErrorDetails(ex.getMessage());
         return new ResponseEntity<>(errorDetails, HttpStatus.UNPROCESSABLE_ENTITY);
     }
     @ExceptionHandler(MethodArgumentNotValidException.class)
@@ -36,11 +36,11 @@ public class GlobalExceptionHandler {
 
     public static class ErrorDetails {
         private String message;
-        private String details;
 
-        public ErrorDetails(String message, String details) {
+
+        public ErrorDetails(String message) {
             this.message = message;
-            this.details = details;
+
         }
 
         // Getters e Setters
@@ -50,14 +50,6 @@ public class GlobalExceptionHandler {
 
         public void setMessage(String message) {
             this.message = message;
-        }
-
-        public String getDetails() {
-            return details;
-        }
-
-        public void setDetails(String details) {
-            this.details = details;
         }
     }
 }

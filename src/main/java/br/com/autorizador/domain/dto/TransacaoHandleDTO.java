@@ -4,11 +4,14 @@ import br.com.autorizador.domain.ports.interfaces.IdempotenciaServicePort;
 import br.com.autorizador.domain.ports.interfaces.SaldoServicePort;
 
 import java.math.BigDecimal;
+import java.util.UUID;
 
 public class TransacaoHandleDTO {
+
+    private Integer idSaldo;
     private String numeroCartao;
     private String senha;
-    private String idIdepotencia;
+    private UUID idIdepotencia;
     private BigDecimal saldo;
     private IdempotenciaServicePort idempotenciaServicePort;
     private SaldoServicePort saldoServicePort;
@@ -21,14 +24,24 @@ public class TransacaoHandleDTO {
         this.saldoServicePort = saldoServicePort;
     }
 
-    public TransacaoHandleDTO(String numeroCartao, String senha, String idIdepotencia, BigDecimal saldo,
-                              IdempotenciaServicePort idempotenciaServicePort, SaldoServicePort saldoServicePort) {
+    public TransacaoHandleDTO(Integer idSaldo, String numeroCartao, String senha,
+                              UUID idIdepotencia, BigDecimal saldo, IdempotenciaServicePort idempotenciaServicePort,
+                              SaldoServicePort saldoServicePort) {
+        this.idSaldo = idSaldo;
         this.numeroCartao = numeroCartao;
         this.senha = senha;
         this.idIdepotencia = idIdepotencia;
         this.saldo = saldo;
         this.idempotenciaServicePort = idempotenciaServicePort;
         this.saldoServicePort = saldoServicePort;
+    }
+
+    public Integer getIdSaldo() {
+        return idSaldo;
+    }
+
+    public void setIdSaldo(Integer idSaldo) {
+        this.idSaldo = idSaldo;
     }
 
     public String getNumeroCartao() {
@@ -47,11 +60,11 @@ public class TransacaoHandleDTO {
         this.senha = senha;
     }
 
-    public String getIdIdepotencia() {
+    public UUID getIdIdepotencia() {
         return idIdepotencia;
     }
 
-    public void setIdIdepotencia(String idIdepotencia) {
+    public void setIdIdepotencia(UUID idIdepotencia) {
         this.idIdepotencia = idIdepotencia;
     }
 
