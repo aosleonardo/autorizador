@@ -23,7 +23,6 @@ public class IdempotenciaRepository implements IdempotenciaRepositoryPort {
 
     @Override
     public Optional<Idempotencia> findByIdempotenciaStatus(String numeroCartao, BigDecimal valor, LocalDateTime now) {
-//        Optional<IdempotenciaEntity> a = springIdempotenciaRepository.findByIdempotenciaStatus(numeroCartao,valor, now);
         return Optional.empty();
     }
 

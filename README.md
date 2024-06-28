@@ -25,7 +25,26 @@ De forma breve, as transações saem das maquininhas de cartão e chegam até um
 - Obter saldo do Cartão
 - Realizar uma Transação
 
+## Documentação
 
+### Diagramas
+
+#### Modelagem do banco de dados
+![dataBase.png](tools%2Fdrawio%2FdataBase.png)
+
+#### Modelo da API de Transações
+![transacoes.png](tools%2Fdrawio%2Ftransacoes.png)
+
+### Swagger-iu
+Execute a aplicação
+
+```bash
+mvn clean package spring-boot:run
+```
+
+Abra a URL no seu navegador
+
+http://localhost:8080/swagger-ui/index.html#
 
 ## Stack utilizada
 
@@ -71,9 +90,6 @@ De forma breve, as transações saem das maquininhas de cartão e chegam até um
 | `senhaCartao`      | `string` | **Obrigatório**.
 | `valor`      | `Long` | **Obrigatório**.
 
-
-
-
 ## Instalação
 
 Instale my-project com npm
@@ -83,7 +99,5 @@ Instale my-project com npm
   cd my-project
 ```
 
-## Melhorias
-
-Que melhorias você fez no seu código? Ex: refatorações, melhorias de performance, acessibilidade, etc
+## Deply Docker
 

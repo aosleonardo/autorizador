@@ -22,7 +22,7 @@ public class IdempotenciaEntity {
         this.id = UUID.randomUUID();
     }
 
-    public IdempotenciaEntity(UUID id, String numeroCartao, BigDecimal valor, LocalDateTime dtTransacao, Boolean ativo) {
+    public IdempotenciaEntity(String numeroCartao, BigDecimal valor, LocalDateTime dtTransacao, Boolean ativo) {
         this.id = UUID.randomUUID();
         this.numeroCartao = numeroCartao;
         this.valor = valor;
