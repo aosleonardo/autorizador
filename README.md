@@ -39,7 +39,7 @@ De forma breve, as transações saem das maquininhas de cartão e chegam até um
 Execute a aplicação
 
 ```bash
-mvn clean package spring-boot:run
+docker compose up -d
 ```
 
 Abra a URL no seu navegador
@@ -95,9 +95,9 @@ http://localhost:8080/swagger-ui/index.html#
 Instale my-project com npm
 
 ```bash
-  npm install my-project
-  cd my-project
+  docker compose up -d
 ```
 
-## Deply Docker
+## Testes Postman
+Existe uma collection de testes no arquivo `tools/postman/VR.postman_collection.json` que pode ser importada no Postman.
 
